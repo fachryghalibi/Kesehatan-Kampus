@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class GetJadwalDokter {
-  final String baseUrl = 'http://10.0.2.2/api_tubes/get_doctor_schedule.php'; 
+  final String baseUrl = 'https://backendtelkommedikamobile.se4603.my.id/get_doctor_schedule.php'; 
 
   // Fetch jadwal dokter
   Future<List<Map<String, dynamic>>> fetchJadwalDokter() async {
@@ -23,7 +23,7 @@ class GetJadwalDokter {
   }
 
   Future<bool> bookConsultation(String doctorId, String time) async {
-    const String apiUrl = "http://10.0.2.2/api_tubes/book_appointment.php"; 
+    const String apiUrl = "https://backendtelkommedikamobile.se4603.my.id/book_appointment.php"; 
 
     try {
       final response = await http.post(
@@ -55,7 +55,7 @@ class GetJadwalDokter {
   Future<bool> createBooking(Map<String, dynamic> bookingData) async {
   try {
     final response = await http.post(
-      Uri.parse('http://10.0.2.2/api_tubes/bookings.php'),
+      Uri.parse('https://backendtelkommedikamobile.se4603.my.id/bookings.php'),
       headers: {
         'Content-Type': 'application/json',
       },

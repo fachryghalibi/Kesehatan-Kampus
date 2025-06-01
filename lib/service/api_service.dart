@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class ApiService {
   Future<Map<String, dynamic>> registerUser(
     String fullName, String email, String password, String phoneNumber) async {
-  const url = 'http://10.0.2.2/api_tubes/registration.php'; 
+  const url = 'https://backendtelkommedikamobile.se4603.my.id/registration.php'; 
   try {
     final response = await http.post(
       Uri.parse(url),

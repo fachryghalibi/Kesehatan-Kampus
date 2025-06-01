@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class JadwalDokter {
-  static const String _baseUrl = 'http://10.0.2.2/api_tubes/jadwal_dokter_api.php';
+  static const String _baseUrl = 'https://backendtelkommedikamobile.se4603.my.id/jadwal_dokter_api.php';
 
   Future<List<Map<String, dynamic>>> fetchJadwalDokter() async {
     try {

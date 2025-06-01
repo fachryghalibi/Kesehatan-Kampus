@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class GantiPassword {
   Future<Map<String, dynamic>> changePassword(
       int userId, String oldPassword, String newPassword) async {
-    const url = 'http://10.0.2.2/api_tubes/ganti_password.php'; // Pastikan URL API benar
+    const url = 'https://backendtelkommedikamobile.se4603.my.id/ganti_password.php'; // Pastikan URL API benar
 
     // Validasi input
     if (userId <= 0) {

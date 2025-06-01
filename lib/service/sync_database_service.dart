@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class SyncDatabaseService {
   Future<bool> syncUsers() async {
-    const url = 'http://10.0.2.2/api_tubes/sync_user_db.php'; 
+    const url = 'https://backendtelkommedikamobile.se4603.my.id/sync_user_db.php'; 
 
     try {
       final response = await http.get(Uri.parse(url));

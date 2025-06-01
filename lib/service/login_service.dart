@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class LoginService {
-  final String _baseUrl = 'http://10.0.2.2/api_tubes/login.php'; 
+  final String _baseUrl = 'https://backendtelkommedikamobile.se4603.my.id/login.php'; 
 
   Future<Map<String, dynamic>> login(String email, String password) async {
     try {

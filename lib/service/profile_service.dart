@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileService {
-  static const String apiUrl = 'http://10.0.2.2/api_tubes/update_profile.php';
+  static const String apiUrl = 'https://backendtelkommedikamobile.se4603.my.id/update_profile.php';
 
   Future<Map<String, dynamic>> updateProfile(
       String userId, String name, String email, String phone) async {

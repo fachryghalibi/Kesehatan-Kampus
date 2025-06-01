@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CheckupService {
-  final String apiUrl = 'http://10.0.2.2/api_tubes/checkup.php';
+  final String apiUrl = 'https://backendtelkommedikamobile.se4603.my.id/checkup.php';
 
   // Fetch checkup history using user_id
   Future<List<Map<String, String>>> getCheckupHistory(int userId) async {

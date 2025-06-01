@@ -11,38 +11,35 @@ class RiwayatKesehatanPage extends StatefulWidget {
 
 class _RiwayatKesehatanPageState extends State<RiwayatKesehatanPage> {
   late Future<List<Map<String, String>>> healthHistory;
-  late int userId;  
+  int? userId;
 
   @override
   void initState() {
     super.initState();
-    _getUserId();  
+    _getUserId();
   }
 
-  // Function to fetch the userId from SharedPreferences
   Future<void> _getUserId() async {
     final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      userId = prefs.getInt('user_id') ?? 0;  // Default 0
-    });
+    final id = prefs.getInt('user_id');
+    if (id != null) {
+      setState(() {
+        userId = id;
+        healthHistory = CheckupService().getCheckupHistory(userId!);
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    // show a loading indicator if userId = 0
-    if (userId == 0) {
+    if (userId == null) {
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
-    // fetch checkup
-    healthHistory = CheckupService().getCheckupHistory(userId);
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Riwayat Kesehatan'),
-      ),
+      appBar: AppBar(title: const Text('Riwayat Kesehatan')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: FutureBuilder<List<Map<String, String>>>(
@@ -72,7 +69,7 @@ class _RiwayatKesehatanPageState extends State<RiwayatKesehatanPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            record['condition']!,
+                            record['condition'] ?? '',
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -81,7 +78,7 @@ class _RiwayatKesehatanPageState extends State<RiwayatKesehatanPage> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Tanggal: ${record['date']}',
+                            'Tanggal: ${record['date'] ?? ''}',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[600],
@@ -89,7 +86,7 @@ class _RiwayatKesehatanPageState extends State<RiwayatKesehatanPage> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            record['details']!,
+                            record['details'] ?? '',
                             style: const TextStyle(fontSize: 16),
                           ),
                         ],

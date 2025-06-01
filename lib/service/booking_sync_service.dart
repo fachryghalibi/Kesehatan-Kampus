@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 
 class BookingSyncService {
-  final String apiUrl = 'http://10.0.2.2/api_tubes/booking_sync.php'; 
+  final String apiUrl = 'https://backendtelkommedikamobile.se4603.my.id/booking_sync.php'; 
 
   Future<bool> syncBookings() async {
     try {

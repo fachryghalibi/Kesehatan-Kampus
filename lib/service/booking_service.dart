@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BookingService {
-  static const String _baseUrl = 'http://10.0.2.2/api_tubes/book_appointment.php';
+  static const String _baseUrl = 'https://backendtelkommedikamobile.se4603.my.id/book_appointment.php';
 
   // Create new booking
 Future<bool> createBooking(Map<String, dynamic> bookingData) async {

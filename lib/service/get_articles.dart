@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class GetArticles {
-  static const String baseUrl = 'http://10.0.2.2/api_tubes/get_articles.php';
+  static const String baseUrl = 'https://backendtelkommedikamobile.se4603.my.id/get_articles.php';
 
   static Future<List<Map<String, dynamic>>> fetchArticles() async {
     try {
